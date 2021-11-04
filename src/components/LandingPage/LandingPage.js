@@ -87,12 +87,12 @@ const LandingPage = () => {
       <Exit />
       <div>
         <Title style={styleOverrides.GameTitle} level={1}>
-          Memory
+          Me-moon-ry
         </Title>
       </div>
       <div>
         <Title style={styleOverrides.GameReady} level={2}>
-          Are you ready to play?
+          Ready for lift off?
         </Title>
       </div>
       <div style={styleOverrides.Players}>
