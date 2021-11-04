@@ -1,0 +1,19 @@
+.GameTitle {
+  color: #fff !important;
+  z-index: 1;
+}
+
+.GameReady {
+  color: #fff;
+}
+
+.Players {
+  display: flex;
+}
+
+.Player {
+  background: #fff;
+  flex-basis: 100px;
+  height: 500px;
+  margin: 5px;
+}
