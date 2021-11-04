@@ -103,6 +103,12 @@ const Board = () => {
           </Title>
         </div>
       </div>
+      <Link
+          to="/score"
+          state={{ playerOne: location.state.playerOne, playerTwo: location.state.playerTwo }}
+        >
+          <Button>SCORE</Button>
+        </Link>
     </div>
   );
 };
