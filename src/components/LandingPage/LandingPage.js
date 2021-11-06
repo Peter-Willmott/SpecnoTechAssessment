@@ -3,6 +3,7 @@ import { Button, Typography, Modal, Form, Input } from "antd";
 import background from "../../img/background.gif";
 import player1Avatar from "../../img/player1_Avatar.png";
 import player2Avatar from "../../img/player2_Avatar.png";
+import flying from "../../img/flyingRotated.png";
 import Exit from "../ExitButton";
 import { Link } from "react-router-dom";
 
@@ -38,12 +39,21 @@ const styleOverrides = {
     display: "block",
     width: "100%",
   },
+  FlyingMan: {
+    marginLeft: "auto",
+    marginRight: "auto",
+    display: "block",
+    width: "100%",
+    paddingTop: "48%"
+  },
   ChampionContainer: {
     width: "20%",
   },
   ChampionButton: {
     width: "100%",
-    top: "50%",
+    top: "42%",
+    height: "10%",
+    fontSize: 20,
   },
   AvatarsModal: {
     display: "inline",
@@ -87,7 +97,7 @@ const LandingPage = () => {
       <Exit />
       <div>
         <Title style={styleOverrides.GameTitle} level={1}>
-          Me-moon-ry
+          Memory Invaders
         </Title>
       </div>
       <div>
@@ -114,6 +124,11 @@ const LandingPage = () => {
           >
             Name Your Champion
           </Button>
+          <img
+            style={styleOverrides.FlyingMan}
+            src={flying}
+            alt="flying"
+          />
           <Modal
             title="Choose Wisely"
             visible={isModalVisible}

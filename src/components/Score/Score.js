@@ -91,10 +91,7 @@ const Score = () => {
     <div style={styleOverrides.Background}>
       <Exit />
       <div>
-        <Link
-          to="/"
-          state={{ playerOne: "playerOneName", playerTwo: "playerTwoName" }}
-        >
+        <Link to="/">
           <ArrowLeftOutlined style={styleOverrides.BackArrow} />
         </Link>
       </div>
@@ -103,7 +100,7 @@ const Score = () => {
           Well Done!
         </Title>
         <Title style={styleOverrides.GameTitle} level={1}>
-          TEST
+          {location.state.playerOne}
         </Title>
         <div style={styleOverrides.Winner}>
           <img style={styleOverrides.KingAvatars} src={Winner} alt="WINNER!" />
@@ -122,7 +119,7 @@ const Score = () => {
               </div>
               <div style={styleOverrides.Tile}>
                 <Title style={styleOverrides.ScoreText} level={3}>
-                  1st Place
+                  1st
                 </Title>
               </div>
               <div style={styleOverrides.Tile}>
@@ -132,7 +129,7 @@ const Score = () => {
               </div>
               <div style={styleOverrides.Tile}>
                 <Title style={styleOverrides.ScoreText} level={4}>
-                  Score: 25
+                  Score: {location.state.playerOneScore}
                 </Title>
               </div>
               <div style={styleOverrides.Tile}>
@@ -155,7 +152,7 @@ const Score = () => {
               </div>
               <div style={styleOverrides.Tile}>
                 <Title style={styleOverrides.ScoreText} level={3}>
-                  2nd Place
+                  2nd
                 </Title>
               </div>
               <div style={styleOverrides.Tile}>
@@ -165,7 +162,7 @@ const Score = () => {
               </div>
               <div style={styleOverrides.Tile}>
                 <Title style={styleOverrides.ScoreText} level={4}>
-                  Score: 0
+                  Score: {location.state.playerTwoScore}
                 </Title>
               </div>
             </div>
@@ -176,8 +173,8 @@ const Score = () => {
       <Link
         to="/play"
         state={{
-          playerOne: location.state.playerOne,
-          playerTwo: location.state.playerTwo,
+         playerOne: location.state.playerOne,
+         playerTwo: location.state.playerTwo,
         }}
       >
         <Button shape="round" style={styleOverrides.Play}>
