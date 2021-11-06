@@ -299,8 +299,9 @@ const Board = () => {
                 indCard={indCard}
                 selectedCard={selectedCard}
                 showCard={
-                  indCard === cardOne || indCard === cardTwo || indCard.matched
+                  indCard === cardOne || indCard === cardTwo
                 }
+                matched={indCard.matched}
               />
             ))}
           </div>

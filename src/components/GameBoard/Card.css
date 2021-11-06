@@ -7,6 +7,9 @@
   width: 100%;
   display: block;
   height: 13.5vh;
+  transform-origin: center right;
+  transform-style: preserve-3d;
+  cursor: pointer;
 }
 
 .card .front {
@@ -27,6 +30,11 @@
 }
 
 .flipped .back {
-  transform: rotateY(90deg);
   transition-delay: 0s;
+  transform: translateX(10%) rotateY(-90deg);
+}
+
+.matched {
+  transform: rotateY(90deg);
+  transition-delay: 0.2s;
 }
