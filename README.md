@@ -1,11 +1,12 @@
 # Specno Tech Assessment
+## Junior - Front-end / Full stack Developer
 
 ## Objective 
 
 Memory (also known as Concentration) is a card game played with one or more players. Using a standard card deck (including both jokers) the players shuffle the deck and lay all of the cards face down on a surface and two cards are flipped face up over each turn. The objective of the game is to turn over pairs of matching cards. 
 
 
-Concentration can be played with any number of players or as solitaire. Wikipedia has a good description of the game.
+Concentration can be played with any number of players or as solitaire.
 
 
 Your challenge is to build Memory adhering to the rules of the game listed below.
