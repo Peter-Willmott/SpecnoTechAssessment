@@ -1,0 +1,78 @@
+.gameTitle {
+  color: rgb(255, 255, 255) !important;
+  text-align: center;
+}
+
+.winner {
+  margin-left: 40%;
+  width: 20%;
+}
+
+.kingAvatars {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 100%;
+}
+
+.avatars {
+  margin-left: auto;
+  margin-right: auto;
+  display: inline;
+  width: 70%;
+}
+
+.trophy {
+  margin-left: auto;
+  margin-right: auto;
+  display: inline;
+  width: 40%;
+}
+
+.backArrow {
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  margin-left: 30px;
+}
+
+.scoreText {
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+}
+
+.tileContainer {
+  position: relative;
+  margin: 5px;
+  width: 100%;
+}
+
+.tile {
+  width: 20%;
+  min-height: 22px;
+  display: inline-block;
+}
+
+.play {
+  width: 20%;
+  margin-left: 40%;
+  margin-right: 40%;
+  margin-top: 50px;
+  color: rgb(75, 0, 130);
+  height: 50px;
+  font-size: 20px;
+}
+
+.row {
+  display: flex;
+  margin-left: 25%;
+  width: 50%;
+  background: rgb(255, 255, 255);
+  margin-bottom: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+.column {
+  flex: 20%;
+  padding: 10px;
+}

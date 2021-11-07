@@ -36,5 +36,4 @@
 
 .matched {
   transform: rotateY(90deg);
-  transition-delay: 0.2s;
 }
