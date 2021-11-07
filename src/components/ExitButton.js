@@ -1,4 +1,6 @@
 import React from "react";
+
+// Antd imports
 import { Button } from "antd";
 
 const styleOverrides = {
@@ -10,12 +12,23 @@ const styleOverrides = {
   },
 };
 
-const Exit = () => (
-  <div style={{ display: "flex" }}>
-    <Button shape="round" style={styleOverrides.ExitButton}>
-      Exit Game
-    </Button>
-  </div>
-);
+const Exit = () => {
+  // A bit hacky as window.close is only allowed to close windows it opened.
+  const closeWindow = () => {
+    window.open("about:blank", "_self");
+    window.close();
+  };
+  return (
+    <div style={{ display: "flex" }}>
+      <Button
+        shape="round"
+        onClick={closeWindow}
+        style={styleOverrides.ExitButton}
+      >
+        Exit Game
+      </Button>
+    </div>
+  );
+};
 
 export default Exit;
