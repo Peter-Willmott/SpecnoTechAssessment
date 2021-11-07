@@ -37,7 +37,7 @@
 
 .scoreText {
   color: rgb(0, 0, 0);
-  font-size: 18px;
+  font-size: 18px !important;
 }
 
 .tileContainer {
@@ -52,14 +52,14 @@
   display: inline-block;
 }
 
-.play {
+.playAgainButton {
   width: 20%;
   margin-left: 40%;
   margin-right: 40%;
   margin-top: 50px;
-  color: rgb(75, 0, 130);
-  height: 50px;
-  font-size: 20px;
+  color: rgb(75, 0, 130) !important;
+  height: 50px !important;
+  font-size: 20px !important;
 }
 
 .row {
