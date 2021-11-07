@@ -1,41 +1,40 @@
 import React, { useEffect, useState } from "react";
+import { useLocation, Link, useNavigate } from "react-router-dom";
+
+// Antd imports
 import { Button, Typography } from "antd";
+import { ArrowLeftOutlined } from "@ant-design/icons";
+
+// Images
 import backgroundCard from "../../img/backgroundCard.jpg";
 import backgroundBoard from "../../img/backgroundBoard.png";
 import match from "../../img/match.gif";
 import player1Avatar from "../../img/player1_Avatar.png";
 import player2Avatar from "../../img/player2_Avatar.png";
+
+// Components
 import Card from "../GameBoard/Card";
-import { useLocation, Link, useNavigate } from "react-router-dom";
-
-import { ArrowLeftOutlined } from "@ant-design/icons";
-
 import Exit from "../ExitButton";
+
+// Cards
+import cards from "./cardsArray";
+
+// Style
+import "./Board.css";
 
 const { Title } = Typography;
 
+// Style overrides, kept within file ease of image imports
 const styleOverrides = {
   Background: {
     backgroundImage: `url(${backgroundCard})`,
     height: "100vh",
   },
-  GameTitle: {
-    color: "white",
-    textAlign: "center",
-  },
-  Players: {
-    display: "flex",
-  },
-  PlayerOne: {
-    marginLeft: "5%",
-    width: "15%",
-  },
-  PlayerTwo: {
-    marginRight: "5%",
-    width: "15%",
-  },
   CardContainer: {
     backgroundImage: `url(${backgroundBoard})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center center",
     width: "70%",
     padding: 10,
     borderRadius: 20,
@@ -53,94 +52,7 @@ const styleOverrides = {
     height: "85vh",
     marginTop: -25,
   },
-  CardLayout: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr",
-    gridGap: 4,
-    height: "100%",
-  },
-  Avatars: {
-    marginLeft: "auto",
-    marginRight: "auto",
-    display: "block",
-    width: "100%",
-  },
-  BackArrow: {
-    color: "white",
-    fontSize: 30,
-    marginLeft: 30,
-  },
-  PlayerTurn: {
-    background: "rgb(167, 171, 228)",
-    width: "70%",
-    marginLeft: "15%",
-    height: "15%",
-    borderRadius: 25,
-  },
-  PlayerTurnText: {
-    color: "black",
-    textAlign: "center",
-    paddingTop: 10,
-    fontSize: 22,
-  },
 };
-
-const cards = [
-  { src: "/cards/2_of_clubs.png" },
-  { src: "/cards/2_of_diamonds.png" },
-  { src: "/cards/2_of_hearts.png" },
-  { src: "/cards/2_of_spades.png" },
-  { src: "/cards/3_of_clubs.png" },
-  { src: "/cards/3_of_diamonds.png" },
-  { src: "/cards/3_of_hearts.png" },
-  { src: "/cards/3_of_spades.png" },
-  { src: "/cards/4_of_clubs.png" },
-  { src: "/cards/4_of_diamonds.png" },
-  { src: "/cards/4_of_hearts.png" },
-  { src: "/cards/4_of_spades.png" },
-  { src: "/cards/5_of_clubs.png" },
-  { src: "/cards/5_of_diamonds.png" },
-  { src: "/cards/5_of_hearts.png" },
-  { src: "/cards/5_of_spades.png" },
-  { src: "/cards/6_of_clubs.png" },
-  { src: "/cards/6_of_diamonds.png" },
-  { src: "/cards/6_of_hearts.png" },
-  { src: "/cards/6_of_spades.png" },
-  { src: "/cards/7_of_clubs.png" },
-  { src: "/cards/7_of_diamonds.png" },
-  { src: "/cards/7_of_hearts.png" },
-  { src: "/cards/7_of_spades.png" },
-  { src: "/cards/8_of_clubs.png" },
-  { src: "/cards/8_of_diamonds.png" },
-  { src: "/cards/8_of_hearts.png" },
-  { src: "/cards/8_of_spades.png" },
-  { src: "/cards/9_of_clubs.png" },
-  { src: "/cards/9_of_diamonds.png" },
-  { src: "/cards/9_of_hearts.png" },
-  { src: "/cards/9_of_spades.png" },
-  { src: "/cards/10_of_clubs.png" },
-  { src: "/cards/10_of_diamonds.png" },
-  { src: "/cards/10_of_hearts.png" },
-  { src: "/cards/10_of_spades.png" },
-  { src: "/cards/jack_of_clubs.png" },
-  { src: "/cards/jack_of_diamonds.png" },
-  { src: "/cards/jack_of_hearts.png" },
-  { src: "/cards/jack_of_spades.png" },
-  { src: "/cards/queen_of_clubs.png" },
-  { src: "/cards/queen_of_diamonds.png" },
-  { src: "/cards/queen_of_hearts.png" },
-  { src: "/cards/queen_of_spades.png" },
-  { src: "/cards/king_of_clubs.png" },
-  { src: "/cards/king_of_diamonds.png" },
-  { src: "/cards/king_of_hearts.png" },
-  { src: "/cards/king_of_spades.png" },
-  { src: "/cards/ace_of_clubs.png" },
-  { src: "/cards/ace_of_diamonds.png" },
-  { src: "/cards/ace_of_hearts.png" },
-  { src: "/cards/ace_of_spades.png" },
-  { src: "/cards/joker_red.png" },
-  { src: "/cards/joker_black.png" },
-];
 
 const Board = () => {
   const [playersTurn, setPlayerTurn] = useState(true);
@@ -150,10 +62,13 @@ const Board = () => {
   const [playerOneScore, setPlayerOneScore] = useState(0);
   const [playerTwoScore, setPlayerTwoScore] = useState(0);
   const [rocketShip, setRocketShip] = useState(true);
+  const [time, setTime] = useState(0);
+  const [start, setStart] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Shuffle cards, reset score and clock
   const shuffle = () => {
     const shuffled = [...cards]
       .sort(() => Math.random() - 0.5)
@@ -163,16 +78,21 @@ const Board = () => {
     setCardTwo(null);
     setPlayerOneScore(0);
     setPlayerTwoScore(0);
+    setTime(0);
+    setStart(true);
   };
 
+  // Call shuffle on load
   useEffect(() => {
     shuffle();
   }, []);
 
+  // Assign first and second card
   const selectedCard = (card) => {
     cardOne ? setCardTwo(card) : setCardOne(card);
   };
 
+  // Check if card numbers (value) match
   const checkNumber = (cardOneNumber, cardTwoNumber) => {
     if (cardOneNumber === cardTwoNumber) {
       return true;
@@ -181,6 +101,7 @@ const Board = () => {
     }
   };
 
+  // Check if card colour matches
   const checkColor = (cardOneSuit, cardTwoSuit) => {
     if (cardOneSuit === cardTwoSuit) {
       return true;
@@ -189,6 +110,7 @@ const Board = () => {
     }
   };
 
+  // Navigate to Score on game complete
   useEffect(() => {
     if (shuffledCards.length > 0) {
       if (shuffledCards.some((e) => e.matched === false)) {
@@ -203,25 +125,47 @@ const Board = () => {
         });
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shuffledCards]);
 
+  // Game Clock
+  useEffect(() => {
+    let interval = null;
+    if (start) {
+      interval = setInterval(() => {
+        setTime((prevTime) => prevTime + 10);
+      }, 10);
+    } else {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [start]);
+
+  // Show 'Its a Match' Rocket
   const showRocket = () => {
     setRocketShip(false);
     setTimeout(() => setRocketShip(true), 1600);
   };
 
+  // Match cards
   useEffect(() => {
     if (cardOne && cardTwo) {
+      // Split card src (e.g. "/cards/2_of_clubs.png")
       const cardOneValues = cardOne.src.split("_");
       const cardTwoValues = cardTwo.src.split("_");
       let cardOneNumber = null;
       let cardTwoNumber = null;
       let cardOneSuit = null;
       let cardTwoSuit = null;
+      // (e.g. "/cards/2")
       cardOneNumber = cardOneValues[0];
       cardTwoNumber = cardTwoValues[0];
+      // Identify if card One is a Jocker or not based of split length (_).
+        //  Length of "/cards/2_of_clubs.png" = 3
+        //  Length of "/cards/joker_black.png" = 2
       if (cardOneValues.length > 2) {
         cardOneSuit = cardOneValues[2];
+        // Match suit to colour
         if (cardOneSuit === "clubs.png" || cardOneSuit === "spades.png") {
           cardOneSuit = "black";
         } else {
@@ -245,6 +189,7 @@ const Board = () => {
       const number = checkNumber(cardOneNumber, cardTwoNumber);
       const suit = checkColor(cardOneSuit, cardTwoSuit);
 
+      // If cards match, update 'matched' value to 'true' for both cards
       if (number && suit) {
         setShuffledCards((cardsOnBoard) => {
           return cardsOnBoard.map((card) => {
@@ -258,14 +203,18 @@ const Board = () => {
             }
           });
         });
+        // Show rocket animation
         setTimeout(showRocket());
+        // Reset card selection
         setCardOne(null);
         setCardTwo(null);
+        // Add score
         if (playersTurn) {
-          setPlayerOneScore(playerOneScore + 10);
+          setPlayerOneScore((prevCount) => prevCount + 10);
         } else {
-          setPlayerTwoScore(playerTwoScore + 10);
+          setPlayerTwoScore((prevCount) => prevCount + 10);
         }
+      // If no match, reset card selection and next players turn
       } else {
         setTimeout(() => {
           setCardOne(null);
@@ -285,26 +234,22 @@ const Board = () => {
           to="/"
           state={{ playerOne: "playerOneName", playerTwo: "playerTwoName" }}
         >
-          <ArrowLeftOutlined style={styleOverrides.BackArrow} />
+          <ArrowLeftOutlined className="backArrow" />
         </Link>
       </div>
 
-      <div style={styleOverrides.Players}>
-        <div style={styleOverrides.PlayerOne}>
-          <img
-            style={styleOverrides.Avatars}
-            src={player1Avatar}
-            alt="Player_1"
-          />
-          <Title style={styleOverrides.GameTitle} level={3}>
+      <div className="players">
+        <div className="playerOne">
+          <img className="avatars" src={player1Avatar} alt="Player_1" />
+          <Title className="gameTitle" level={3}>
             {location.state.playerOne}
           </Title>
-          <Title style={styleOverrides.GameTitle} level={4}>
+          <Title className="gameTitle" level={4}>
             Score: {playerOneScore}
           </Title>
           {playersTurn && (
-            <div style={styleOverrides.PlayerTurn}>
-              <Title style={styleOverrides.PlayerTurnText} level={4}>
+            <div className="playerTurn">
+              <Title className="playerTurnText" level={4}>
                 It's your turn
               </Title>
             </div>
@@ -312,8 +257,9 @@ const Board = () => {
         </div>
         {rocketShip && (
           <div style={styleOverrides.CardContainer}>
-            <div style={styleOverrides.CardLayout}>
+            <div className="cardLayout">
               {shuffledCards.map((indCard) => (
+                // Component to handle individual cards
                 <Card
                   key={indCard.id}
                   indCard={indCard}
@@ -327,39 +273,48 @@ const Board = () => {
         )}
         {!rocketShip && <div style={styleOverrides.CardContainerMatch}></div>}
 
-        <div style={styleOverrides.PlayerTwo}>
-          <img
-            style={styleOverrides.Avatars}
-            src={player2Avatar}
-            alt="Player_2"
-          />
-          <Title style={styleOverrides.GameTitle} level={3}>
+        <div className="playerTwo">
+          <img className="avatars" src={player2Avatar} alt="Player_2" />
+          <Title className="gameTitle" level={3}>
             {location.state.playerTwo}
           </Title>
-          <Title style={styleOverrides.GameTitle} level={4}>
+          <Title className="gameTitle" level={4}>
             Score: {playerTwoScore}
           </Title>
           {!playersTurn && (
-            <div style={styleOverrides.PlayerTurn}>
-              <Title style={styleOverrides.PlayerTurnText} level={4}>
+            <div className="playerTurn">
+              <Title className="playerTurnText" level={4}>
                 It's your turn
               </Title>
             </div>
           )}
         </div>
       </div>
-      <Link
-        to="/score"
-        state={{
-          playerOne: location.state.playerOne,
-          playerTwo: location.state.playerTwo,
-          playerOneScore: playerOneScore,
-          playerTwoScore: playerTwoScore,
-        }}
-      >
-        <Button>End Game</Button>
-      </Link>
-      <Button onClick={shuffle}>Play Again</Button>
+      <div className="row">
+        <div className="column">
+          <Link
+            to="/score"
+            state={{
+              playerOne: location.state.playerOne,
+              playerTwo: location.state.playerTwo,
+              playerOneScore: playerOneScore,
+              playerTwoScore: playerTwoScore,
+            }}
+          >
+            <Button className="bottomButtons">End Game</Button>
+          </Link>
+        </div>
+        <div className="column">
+          {/* Game timer */}
+          {("0" + Math.floor((time / 60000) % 60)).slice(-2)}:
+          {("0" + Math.floor((time / 1000) % 60)).slice(-2)}
+        </div>
+        <div className="column">
+          <Button className="bottomButtons" onClick={shuffle}>
+            Play Again
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };
