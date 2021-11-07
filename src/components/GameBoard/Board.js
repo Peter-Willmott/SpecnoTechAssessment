@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Typography } from "antd";
 import backgroundCard from "../../img/backgroundCard.jpg";
 import backgroundBoard from "../../img/backgroundBoard.png";
+import match from "../../img/match.gif";
 import player1Avatar from "../../img/player1_Avatar.png";
 import player2Avatar from "../../img/player2_Avatar.png";
 import Card from "../GameBoard/Card";
@@ -35,6 +36,17 @@ const styleOverrides = {
   },
   CardContainer: {
     backgroundImage: `url(${backgroundBoard})`,
+    width: "70%",
+    padding: 10,
+    borderRadius: 20,
+    height: "85vh",
+    marginTop: -25,
+  },
+  CardContainerMatch: {
+    backgroundImage: `url(${match})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center center",
     width: "70%",
     padding: 10,
     borderRadius: 20,
@@ -137,6 +149,7 @@ const Board = () => {
   const [cardTwo, setCardTwo] = useState(null);
   const [playerOneScore, setPlayerOneScore] = useState(0);
   const [playerTwoScore, setPlayerTwoScore] = useState(0);
+  const [rocketShip, setRocketShip] = useState(true);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -192,6 +205,11 @@ const Board = () => {
     }
   }, [shuffledCards]);
 
+  const showRocket = () => {
+    setRocketShip(false);
+    setTimeout(() => setRocketShip(true), 1600);
+  };
+
   useEffect(() => {
     if (cardOne && cardTwo) {
       const cardOneValues = cardOne.src.split("_");
@@ -240,6 +258,7 @@ const Board = () => {
             }
           });
         });
+        setTimeout(showRocket());
         setCardOne(null);
         setCardTwo(null);
         if (playersTurn) {
@@ -291,21 +310,22 @@ const Board = () => {
             </div>
           )}
         </div>
-        <div style={styleOverrides.CardContainer}>
-          <div style={styleOverrides.CardLayout}>
-            {shuffledCards.map((indCard) => (
-              <Card
-                key={indCard.id}
-                indCard={indCard}
-                selectedCard={selectedCard}
-                showCard={
-                  indCard === cardOne || indCard === cardTwo
-                }
-                matched={indCard.matched}
-              />
-            ))}
+        {rocketShip && (
+          <div style={styleOverrides.CardContainer}>
+            <div style={styleOverrides.CardLayout}>
+              {shuffledCards.map((indCard) => (
+                <Card
+                  key={indCard.id}
+                  indCard={indCard}
+                  selectedCard={selectedCard}
+                  showCard={indCard === cardOne || indCard === cardTwo}
+                  matched={indCard.matched}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
+        {!rocketShip && <div style={styleOverrides.CardContainerMatch}></div>}
 
         <div style={styleOverrides.PlayerTwo}>
           <img
