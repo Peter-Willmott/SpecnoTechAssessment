@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/SpecnoTechAssessment/static/css/main.b3d82874.chunk.css",
+    "main.js": "/SpecnoTechAssessment/static/js/main.82cf0b60.chunk.js",
+    "main.js.map": "/SpecnoTechAssessment/static/js/main.82cf0b60.chunk.js.map",
+    "runtime-main.js": "/SpecnoTechAssessment/static/js/runtime-main.c0389dfb.js",
+    "runtime-main.js.map": "/SpecnoTechAssessment/static/js/runtime-main.c0389dfb.js.map",
+    "static/css/2.a95be28f.chunk.css": "/SpecnoTechAssessment/static/css/2.a95be28f.chunk.css",
+    "static/js/2.d75c95c5.chunk.js": "/SpecnoTechAssessment/static/js/2.d75c95c5.chunk.js",
+    "static/js/2.d75c95c5.chunk.js.map": "/SpecnoTechAssessment/static/js/2.d75c95c5.chunk.js.map",
+    "static/js/3.f82ba594.chunk.js": "/SpecnoTechAssessment/static/js/3.f82ba594.chunk.js",
+    "static/js/3.f82ba594.chunk.js.map": "/SpecnoTechAssessment/static/js/3.f82ba594.chunk.js.map",
+    "index.html": "/SpecnoTechAssessment/index.html",
+    "static/css/2.a95be28f.chunk.css.map": "/SpecnoTechAssessment/static/css/2.a95be28f.chunk.css.map",
+    "static/css/main.b3d82874.chunk.css.map": "/SpecnoTechAssessment/static/css/main.b3d82874.chunk.css.map",
+    "static/js/2.d75c95c5.chunk.js.LICENSE.txt": "/SpecnoTechAssessment/static/js/2.d75c95c5.chunk.js.LICENSE.txt",
+    "static/media/background.1b0d7fa0.gif": "/SpecnoTechAssessment/static/media/background.1b0d7fa0.gif",
+    "static/media/backgroundBoard.ad1c7a9c.png": "/SpecnoTechAssessment/static/media/backgroundBoard.ad1c7a9c.png",
+    "static/media/backgroundCard.814060ff.jpg": "/SpecnoTechAssessment/static/media/backgroundCard.814060ff.jpg",
+    "static/media/cardBack.45e20874.png": "/SpecnoTechAssessment/static/media/cardBack.45e20874.png",
+    "static/media/flyingRotated.ca76465f.png": "/SpecnoTechAssessment/static/media/flyingRotated.ca76465f.png",
+    "static/media/match.b331727d.gif": "/SpecnoTechAssessment/static/media/match.b331727d.gif",
+    "static/media/player1_Avatar.c05d1652.png": "/SpecnoTechAssessment/static/media/player1_Avatar.c05d1652.png",
+    "static/media/player2_Avatar.107f57d2.png": "/SpecnoTechAssessment/static/media/player2_Avatar.107f57d2.png",
+    "static/media/trophy.07e5d126.png": "/SpecnoTechAssessment/static/media/trophy.07e5d126.png",
+    "static/media/winner.de5c7bb9.png": "/SpecnoTechAssessment/static/media/winner.de5c7bb9.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c0389dfb.js",
+    "static/css/2.a95be28f.chunk.css",
+    "static/js/2.d75c95c5.chunk.js",
+    "static/css/main.b3d82874.chunk.css",
+    "static/js/main.82cf0b60.chunk.js"
+  ]
+}
