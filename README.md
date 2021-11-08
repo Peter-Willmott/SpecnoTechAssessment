@@ -1,11 +1,14 @@
 # Specno Tech Assessment
+## Junior - Front-end / Full stack Developer
+
+Thank you for taking the time to look at my assessment, I really appreciate this opportunity.
 
 ## Objective 
 
 Memory (also known as Concentration) is a card game played with one or more players. Using a standard card deck (including both jokers) the players shuffle the deck and lay all of the cards face down on a surface and two cards are flipped face up over each turn. The objective of the game is to turn over pairs of matching cards. 
 
 
-Concentration can be played with any number of players or as solitaire. Wikipedia has a good description of the game.
+Concentration can be played with any number of players or as solitaire.
 
 
 Your challenge is to build Memory adhering to the rules of the game listed below.
@@ -20,3 +23,15 @@ Your challenge is to build Memory adhering to the rules of the game listed below
   * If the number and color of the cards match, the player collects the pair and the cards are removed from the board
   * If the cards do not match, they are turned back over and remain in position
 - The players with the most cards wins
+
+## Running the Application
+To run the application locally
+
+- Download/clone production branch
+- Run npm install while in the /memory-tech-assessment folder
+- To start the application run npm start
+- The application will open in a new tab of your browser
+
+To view the application on Github Pages
+
+- go to https://peter-willmott.github.io/SpecnoTechAssessment/
