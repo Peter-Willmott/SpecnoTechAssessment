@@ -115,7 +115,7 @@ const Board = () => {
     if (shuffledCards.length > 0) {
       if (shuffledCards.some((e) => e.matched === false)) {
       } else {
-        navigate("SpecnoTechAssessment/score", {
+        navigate("/SpecnoTechAssessment/score", {
           state: {
             playerOne: location.state.playerOne,
             playerTwo: location.state.playerTwo,
@@ -150,23 +150,23 @@ const Board = () => {
   // Match cards
   useEffect(() => {
     if (cardOne && cardTwo) {
-      // Split card src (e.g. "/cards/2_of_clubs.png")
+      // Split card src (e.g. "/SpecnoTechAssessment/static/media/2_of_diamonds.a51b192d.png")
       const cardOneValues = cardOne.src.split("_");
       const cardTwoValues = cardTwo.src.split("_");
       let cardOneNumber = null;
       let cardTwoNumber = null;
       let cardOneSuit = null;
       let cardTwoSuit = null;
-      // (e.g. "/cards/2")
+      // (e.g. "/SpecnoTechAssessment/static/media/2")
       cardOneNumber = cardOneValues[0];
       cardTwoNumber = cardTwoValues[0];
       // Identify if card One is a Jocker or not based of split length (_).
-        //  Length of "/cards/2_of_clubs.png" = 3
-        //  Length of "/cards/joker_black.png" = 2
+        //  Length of "2_of_clubs.png" = 3
+        //  Length of "joker_black.png" = 2
       if (cardOneValues.length > 2) {
         cardOneSuit = cardOneValues[2];
         // Match suit to colour
-        if (cardOneSuit === "clubs.png" || cardOneSuit === "spades.png") {
+        if (cardOneSuit.includes("clubs") || cardOneSuit.includes("spades")) {
           cardOneSuit = "black";
         } else {
           cardOneSuit = "red";
@@ -174,7 +174,7 @@ const Board = () => {
       }
       if (cardTwoValues.length > 2) {
         cardTwoSuit = cardTwoValues[2];
-        if (cardTwoSuit === "clubs.png" || cardTwoSuit === "spades.png") {
+        if (cardTwoSuit.includes("clubs") || cardTwoSuit.includes("spades")) {
           cardTwoSuit = "black";
         } else {
           cardTwoSuit = "red";
