@@ -115,7 +115,7 @@ const Board = () => {
     if (shuffledCards.length > 0) {
       if (shuffledCards.some((e) => e.matched === false)) {
       } else {
-        navigate("/score", {
+        navigate("SpecnoTechAssessment/score", {
           state: {
             playerOne: location.state.playerOne,
             playerTwo: location.state.playerTwo,
@@ -231,7 +231,7 @@ const Board = () => {
 
       <div>
         <Link
-          to="/"
+          to="/SpecnoTechAssessment/"
           state={{ playerOne: "playerOneName", playerTwo: "playerTwoName" }}
         >
           <ArrowLeftOutlined className="backArrow" />
@@ -293,7 +293,7 @@ const Board = () => {
       <div className="row">
         <div className="column">
           <Link
-            to="/score"
+            to="/SpecnoTechAssessment/score"
             state={{
               playerOne: location.state.playerOne,
               playerTwo: location.state.playerTwo,

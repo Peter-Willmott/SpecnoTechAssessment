@@ -56,7 +56,7 @@ const Score = () => {
     <div style={styleOverrides.Background}>
       <Exit />
       <div>
-        <Link to="/">
+        <Link to="/SpecnoTechAssessment/">
           <ArrowLeftOutlined
             className="backArrow"
             style={styleOverrides.BackArrow}
@@ -139,7 +139,7 @@ const Score = () => {
       )}
 
       <Link
-        to="/play"
+        to="/SpecnoTechAssessment/play"
         state={{
           playerOne: location.state.playerOne,
           playerTwo: location.state.playerTwo,

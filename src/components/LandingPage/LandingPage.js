@@ -136,7 +136,7 @@ const LandingPage = () => {
         </div>
       </div>
       <Link
-        to="/play"
+        to="/SpecnoTechAssessment/play"
         state={{ playerOne: playerOneName, playerTwo: playerTwoName }}
       >
         <Button shape="round" className="play">
