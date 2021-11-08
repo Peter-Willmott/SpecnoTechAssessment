@@ -10,9 +10,9 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/play" element={<Board />} />
-        <Route path="/score" element={<Score />} />
+        <Route path="SpecnoTechAssessment/" element={<LandingPage />} />
+        <Route path="SpecnoTechAssessment/play" element={<Board />} />
+        <Route path="SpecnoTechAssessment/score" element={<Score />} />
       </Routes>
     </div>
   );
