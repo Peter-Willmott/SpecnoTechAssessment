@@ -1,7 +1,7 @@
 # Specno Tech Assessment
 ## Junior - Front-end / Full stack Developer
 
-Thank you for taking the time to look at my assessment
+Thank you for taking the time to look at my assessment, I really appreciate this opportunity.
 
 ## Objective 
 
