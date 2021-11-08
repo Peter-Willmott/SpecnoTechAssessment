@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/SpecnoTechAssessment/static/css/main.b3d82874.chunk.css",
-    "main.js": "/SpecnoTechAssessment/static/js/main.82cf0b60.chunk.js",
-    "main.js.map": "/SpecnoTechAssessment/static/js/main.82cf0b60.chunk.js.map",
+    "main.js": "/SpecnoTechAssessment/static/js/main.aae9869a.chunk.js",
+    "main.js.map": "/SpecnoTechAssessment/static/js/main.aae9869a.chunk.js.map",
     "runtime-main.js": "/SpecnoTechAssessment/static/js/runtime-main.c0389dfb.js",
     "runtime-main.js.map": "/SpecnoTechAssessment/static/js/runtime-main.c0389dfb.js.map",
     "static/css/2.a95be28f.chunk.css": "/SpecnoTechAssessment/static/css/2.a95be28f.chunk.css",
@@ -30,6 +30,6 @@
     "static/css/2.a95be28f.chunk.css",
     "static/js/2.d75c95c5.chunk.js",
     "static/css/main.b3d82874.chunk.css",
-    "static/js/main.82cf0b60.chunk.js"
+    "static/js/main.aae9869a.chunk.js"
   ]
 }
