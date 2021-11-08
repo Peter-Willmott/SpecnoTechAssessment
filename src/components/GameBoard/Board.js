@@ -29,6 +29,7 @@ const styleOverrides = {
   Background: {
     backgroundImage: `url(${backgroundCard})`,
     height: "100vh",
+    backgroundRepeat: "repeat-y",
   },
   CardContainer: {
     backgroundImage: `url(${backgroundBoard})`,
@@ -240,7 +241,7 @@ const Board = () => {
 
       <div className="players">
         <div className="playerOne">
-          <img className="avatars" src={player1Avatar} alt="Player_1" />
+          <img className="avatarsBoard" src={player1Avatar} alt="Player_1" />
           <Title className="gameTitle" level={3}>
             {location.state.playerOne}
           </Title>
@@ -274,7 +275,7 @@ const Board = () => {
         {!rocketShip && <div style={styleOverrides.CardContainerMatch}></div>}
 
         <div className="playerTwo">
-          <img className="avatars" src={player2Avatar} alt="Player_2" />
+          <img className="avatarsBoard" src={player2Avatar} alt="Player_2" />
           <Title className="gameTitle" level={3}>
             {location.state.playerTwo}
           </Title>
